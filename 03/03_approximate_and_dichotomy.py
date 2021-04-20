@@ -14,17 +14,19 @@
 #     print(ans, 'is close to square root of', x)
 
 # 立方根の近似解のための二分法
-x = -25
+x = 24
 epsilon = 0.01
 numGuesses = 0
 low = min(-1.0, x)
 high = max(1.0, x)
 print(low, high)
 ans = (high + low)/2.0
-while abs(ans**3 - x) >= epsilon:
-    print('low =', low, 'high =', high, 'ans =', ans)
+i = 0
+while abs(ans**2 - x) >= epsilon:
+    i += 1
+    print(i, 'low =', low, 'high =', high, 'ans =', ans)
     numGuesses += 1
-    if ans**3 < x:
+    if ans**2 < x:
         low = ans
     else:
         high = ans
