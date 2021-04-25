@@ -44,3 +44,27 @@
 
 # extendやappendは副作用を持つ
 # +演算子は持たない
+
+# クローンの作成
+def removeDups(L1, L2):
+    """
+    リストL1からリストL2にも存在する要素を取り除く
+    """
+    for e1 in L1:
+        if e1 in L2:
+            L1.remove(e1)
+
+L1 = [1,2,3,4]
+L2 = [1,2,5,6]
+removeDups(L1, L2)
+print('L1 =', L1) # L1 = [2, 3, 4]
+# 複製ではなく同じオブジェクトを参照しているためにこのようなことが起こる
+# 配列のコピーを作成するにはfor e1 in L1[:]と書いたり
+# newL1 = list(L1)と書いたりする
+
+# リスト内包
+L = [x**2 for x in range(1, 7)]
+print(L) # [1, 4, 9, 16, 25, 36]
+
+mixed = [1, 2, 'a', 3, 4.0]
+print([x**2 for x in mixed if type(x)==int])
